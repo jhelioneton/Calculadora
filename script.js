@@ -10,6 +10,10 @@ class Calculator {
     }
     //Adiciona os números na tela.
     addDigit(digit) {
+        //Verificar se a operação já possui um ponto (.).
+        if(digit === "." && this.currentOperationText.innerText.includes(".")) {
+            return;
+        }
 
         this.currentOperation = digit
         this.updateScreen()
