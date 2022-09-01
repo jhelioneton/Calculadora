@@ -1,0 +1,100 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    @import url('https://fonts.googleapis.com/css2?family=Edu+NSW+ACT+Foundation&family=Exo+2:wght@100&display=swap');
+}
+
+body {
+    background-color: lightgray;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 48px;
+}
+
+#calc {
+    width: 400px;
+    padding: 8px;
+    background-color: #c4c4c4;
+    color: #000;
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+    -webkit-box-shadow: 5px 5px 15px 5px rgba(0,0,0,0.36); 
+    box-shadow: 5px 5px 15px 5px rgba(0,0,0,0.36);
+}
+
+#operations {
+    text-align: right;
+}
+
+#prev-operation {
+    background-color: #D7DEED;
+    color: #777;
+    padding: 3px;
+    overflow-wrap: break-word;
+    min-height: 25px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+#current-operation {
+    background-color: #D7DEED;
+    min-height: 25px;
+    font-size: 30px;
+    font-weight: 700;
+    padding: 3px;
+    overflow-wrap: break-word;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    margin-bottom: 10px;
+}
+
+#bttn-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 3px;
+}
+
+#bttn-container button {
+    border: 1px solid transparent;
+    border-radius: 50px;
+    height: 64px;
+    font-size: 20px;
+    background-color: #D7DEED;
+    cursor: pointer;
+}
+
+#bttn-container .number {
+    background-color: #f3f3f3;
+}
+
+#bttn-container button:hover {
+    background-color: #bababa;
+    border-color: #999;
+}
+
+#bttn-container #bttn-igual {
+    background-color: #a6bdff;
+}
+
+#bttn-container #bttn-igual:hover {
+    background-color: darkgrey;
+}
+
+#bttn-container #ac {
+    background-color: #8ccfa3;
+}
+
+#bttn-container #op {
+    background-color: #8ccfff;
+}
+
+#bttn-container #op:hover {
+    background-color: #bababa;
+}
+
+#bttn-container #ac:hover {
+    background-color: #bababa;
+}
