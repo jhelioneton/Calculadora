@@ -21,11 +21,42 @@ class Calculator {
 
     //Processar todas as operações.
     processOperation(operation) {
-        console.log(operation);
+        //Pegar o valor atual e anterior.
+        let operationValue;
+        const previous = +this.previousOperationText.innerText.split(" ")[0];
+        const current = +this.currentOperationText.innerText;
+
+        switch (operation) {
+            case "+":
+                operationValue = previous + current;
+                this.updateScreen(operationValue, operation, current, previous);
+                break;
+            default:
+                return;
+        }
     }
 
     // Mudar os valores na tela da calculadora.
-    updateScreen() {
+    updateScreen(
+        operationValue = null,
+        operation = null,
+        current = null,
+        previous = null
+    ) {
+        if (operationValue === null) {
+            this.currentOperationText.innerText += this.currentOperation;
+        } else {
+            // Checar se o valor é zero, se for apenas adeicionar o valor atual.
+            if (previous === 0) {
+                operationValue = current;
+            }
+
+            // Adiciona o valor atual ao anterior.
+            this.previousOperationText.innerText = `${operationValue} ${operation}`;
+            this.currentOperationText.innerText = " ";
+
+        }
+
         this.currentOperationText.innerText += this.currentOperation; //Adiciona os números da operação atual dentro do texto da operação atual. 
     }
 }
@@ -43,16 +74,3 @@ button.forEach((btn) => {
         }
     });
 });
-
-//Mostra no console os botões dos números e das operações sendo apertadas.
-//button.forEach((btn) => {
-   // btn.addEventListener("click", (e) => {
-       // const value = e.target.innerText;
-
-       // if(+value >=0 || value === ".") {
-           // console.log(value);
-       // } else {
-           // console.log("Op: " + value);
-      //  }
-   // });
-// });
