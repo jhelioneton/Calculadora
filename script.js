@@ -11,14 +11,20 @@ class Calculator {
     //Adiciona os números na tela.
     addDigit(digit) {
         //Verificar se a operação já possui um ponto (.).
-        if(digit === "." && this.currentOperationText.innerText.includes(".")) {
+        if (digit === "." && this.currentOperationText.innerText.includes(".")) {
             return;
         }
 
-        this.currentOperation = digit
-        this.updateScreen()
+        this.currentOperation = digit;
+        this.updateScreen();
     }
-    // Muda os valores na tela da calculadora.
+
+    //Processar todas as operações.
+    processOperation(operation) {
+        console.log(operation);
+    }
+
+    // Mudar os valores na tela da calculadora.
     updateScreen() {
         this.currentOperationText.innerText += this.currentOperation; //Adiciona os números da operação atual dentro do texto da operação atual. 
     }
@@ -33,7 +39,7 @@ button.forEach((btn) => {
         if (+value >= 0 || value === ".") {
             calc.addDigit(value);
         } else {
-            console.log("Op: " + value);
+            calc.processOperation(value);
         }
     });
 });
