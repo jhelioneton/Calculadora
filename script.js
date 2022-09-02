@@ -23,6 +23,16 @@ class Calculator {
 
     //Processar todas as operações.
     processOperation(operation) {
+        //Checar se a operação atua está vazia.
+        if (this.currentOperationText.innerText === "") {
+            //Mudar a operação.
+            if (this.previousOperationText.innerText !== "") {
+                this.changeOperation(operation);
+            }
+            return;
+        }
+
+
         //Pegar o valor atual e anterior.
         let operationValue;
         const previous = +this.previousOperationText.innerText.split(" ")[0];
@@ -71,7 +81,18 @@ class Calculator {
             this.currentOperationText.innerText = "";
 
         }
+    }
 
+    // Mudar a operação.
+    changeOperation(operation) {
+
+        const mathOperation = ["*", "/", "+", "-"];
+
+        if (!mathOperation.includes(operation)) {
+            return;
+        }
+
+        this.previousOperationText.innerText = previousOperationText.innerText.slice(0, -1) + operation;
 
     }
 }
