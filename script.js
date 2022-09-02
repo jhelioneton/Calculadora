@@ -8,8 +8,10 @@ class Calculator {
         this.currentOperationText = currentOperationText;
         this.currentOperation = "";
     }
+   
     //Adiciona os números na tela.
     addDigit(digit) {
+        console.log(digit);
         //Verificar se a operação já possui um ponto (.).
         if (digit === "." && this.currentOperationText.innerText.includes(".")) {
             return;
@@ -44,6 +46,7 @@ class Calculator {
         previous = null
     ) {
         if (operationValue === null) {
+            // Anexa número ao valor atual.
             this.currentOperationText.innerText += this.currentOperation;
         } else {
             // Checar se o valor é zero, se for apenas adeicionar o valor atual.
@@ -53,11 +56,11 @@ class Calculator {
 
             // Adiciona o valor atual ao anterior.
             this.previousOperationText.innerText = `${operationValue} ${operation}`;
-            this.currentOperationText.innerText = " ";
+            this.currentOperationText.innerText = "";
 
         }
 
-        this.currentOperationText.innerText += this.currentOperation; //Adiciona os números da operação atual dentro do texto da operação atual. 
+        
     }
 }
 
