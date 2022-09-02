@@ -8,7 +8,7 @@ class Calculator {
         this.currentOperationText = currentOperationText;
         this.currentOperation = "";
     }
-   
+
     //Adiciona os números na tela.
     addDigit(digit) {
         console.log(digit);
@@ -31,6 +31,18 @@ class Calculator {
         switch (operation) {
             case "+":
                 operationValue = previous + current;
+                this.updateScreen(operationValue, operation, current, previous);
+                break;
+            case "-":
+                operationValue = previous - current;
+                this.updateScreen(operationValue, operation, current, previous);
+                break;
+            case "/":
+                operationValue = previous / current;
+                this.updateScreen(operationValue, operation, current, previous);
+                break;
+            case "*":
+                operationValue = previous * current;
                 this.updateScreen(operationValue, operation, current, previous);
                 break;
             default:
@@ -60,7 +72,7 @@ class Calculator {
 
         }
 
-        
+
     }
 }
 
