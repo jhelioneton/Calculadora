@@ -24,7 +24,7 @@ class Calculator {
     //Processar todas as operações.
     processOperation(operation) {
         //Checar se a operação atua está vazia.
-        if (this.currentOperationText.innerText === "") {
+        if (this.currentOperationText.innerText === "" && operation !== "AC") {
             //Mudar a operação.
             if (this.previousOperationText.innerText !== "") {
                 this.changeOperation(operation);
@@ -55,11 +55,18 @@ class Calculator {
                 operationValue = previous * current;
                 this.updateScreen(operationValue, operation, current, previous);
                 break;
+            case "%":
+                operationValue = previous % current;
+                this.updateScreen(operationValue, operation, current, previous);
+                break;
             case "DEL":
                 this.processDelOperator();
                 break;
             case "AC":
-                this.processClearCurrentOperation();
+                this.processClearOperator();
+                break;
+            case "=":
+                this.processEqualsOperator();
                 break;
             default:
                 return;
@@ -106,9 +113,16 @@ class Calculator {
         this.currentOperationText.innerText = this.currentOperationText, innerText.slice(0, -1);
     }
 
-    // Limpar a operação atual.
-    processClearCurrentOperation() {
+    // Limpar toda a operação atual.
+    processClearOperator() {
         this.currentOperationText.innerText = "";
+        this.previousOperationText.innerText = "";
+    }
+
+    // Operação de =.
+    processEqualsOperator() {
+        let operation = this.previousOperationText.innerText.split(" ")[1];
+        this.processOperation(operation);
     }
 }
 
