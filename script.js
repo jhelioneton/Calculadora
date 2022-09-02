@@ -99,7 +99,7 @@ class Calculator {
     // Mudar a operação.
     changeOperation(operation) {
 
-        const mathOperation = ["*", "/", "+", "-"];
+        const mathOperation = ["*", "/", "+", "-", "%"];
 
         if (!mathOperation.includes(operation)) {
             return;
