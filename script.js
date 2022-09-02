@@ -58,6 +58,9 @@ class Calculator {
             case "DEL":
                 this.processDelOperator();
                 break;
+            case "AC":
+                this.processClearCurrentOperation();
+                break;
             default:
                 return;
         }
@@ -101,6 +104,11 @@ class Calculator {
     // Apagar o ultimo digito.
     processDelOperator() {
         this.currentOperationText.innerText = this.currentOperationText, innerText.slice(0, -1);
+    }
+
+    // Limpar a operação atual.
+    processClearCurrentOperation() {
+        this.currentOperationText.innerText = "";
     }
 }
 
